@@ -10,7 +10,7 @@ const ProductList = ({ products, refreshProductList }) => {
     name: "",
     description: "",
     price: "",
-    image: null,
+    image: null
   });
 
   const handleEdit = (product) => {
@@ -21,7 +21,7 @@ const ProductList = ({ products, refreshProductList }) => {
       name: product.name,
       description: product.description,
       price: product.price,
-      image: product.imageUrl, // Use the current product's image URL
+      image: product.imageUrl // Use the current product's image URL
     });
   };
 
@@ -32,7 +32,7 @@ const ProductList = ({ products, refreshProductList }) => {
       name: "",
       description: "",
       price: "",
-      image: null,
+      image: null
     });
   };
 
@@ -58,12 +58,12 @@ const ProductList = ({ products, refreshProductList }) => {
 
       // Replace with your API endpoint
       await axios.put(
-        `http://localhost:8080/products/${editedProduct._id}`,
+        `https://bhagwati-industries.onrender.com/products/${editedProduct._id}`,
         formData,
         {
           headers: {
-            "Content-Type": "multipart/form-data",
-          },
+            "Content-Type": "multipart/form-data"
+          }
         }
       );
 
@@ -73,7 +73,7 @@ const ProductList = ({ products, refreshProductList }) => {
         name: "",
         description: "",
         price: "",
-        image: null,
+        image: null
       });
       refreshProductList(); // Refresh the product list after update
     } catch (error) {

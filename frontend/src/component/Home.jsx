@@ -13,7 +13,7 @@ const Home = ({ products }) => {
           {/* Image */}
           <div className="mb-4">
             <img
-              src={`http://localhost:8080${product.imageUrl}`}
+              src={`https://bhagwati-industries.onrender.com${product.imageUrl}`}
               alt={product.name}
               className="w-full h-64 object-cover rounded-lg"
             />
