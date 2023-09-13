@@ -10,7 +10,7 @@ const ProductList = ({ products, refreshProductList }) => {
     name: "",
     description: "",
     price: "",
-    image: null
+    image: null,
   });
 
   const handleEdit = (product) => {
@@ -21,7 +21,7 @@ const ProductList = ({ products, refreshProductList }) => {
       name: product.name,
       description: product.description,
       price: product.price,
-      image: product.imageUrl // Use the current product's image URL
+      image: product.imageUrl, // Use the current product's image URL
     });
   };
 
@@ -32,7 +32,7 @@ const ProductList = ({ products, refreshProductList }) => {
       name: "",
       description: "",
       price: "",
-      image: null
+      image: null,
     });
   };
 
@@ -58,12 +58,12 @@ const ProductList = ({ products, refreshProductList }) => {
 
       // Replace with your API endpoint
       await axios.put(
-        `https://bhagwati-industries.onrender.com/products/${editedProduct._id}`,
+        `https://bhagawati-industies.vercel.app/products/${editedProduct._id}`,
         formData,
         {
           headers: {
-            "Content-Type": "multipart/form-data"
-          }
+            "Content-Type": "multipart/form-data",
+          },
         }
       );
 
@@ -73,7 +73,7 @@ const ProductList = ({ products, refreshProductList }) => {
         name: "",
         description: "",
         price: "",
-        image: null
+        image: null,
       });
       refreshProductList(); // Refresh the product list after update
     } catch (error) {
@@ -84,7 +84,7 @@ const ProductList = ({ products, refreshProductList }) => {
   const handleDeleteProduct = async (productId) => {
     try {
       // Replace with your API endpoint
-      await axios.delete(`http://localhost:8080/products/${productId}`);
+      await axios.delete(`https://bhagwati-industries.onrender.com/products/${productId}`);
       refreshProductList(); // Refresh the product list after delete
     } catch (error) {
       console.error("Error deleting product:", error);
@@ -101,7 +101,7 @@ const ProductList = ({ products, refreshProductList }) => {
           {/* Image */}
           <div className="mb-4">
             <img
-              src={`http://localhost:8080${product.imageUrl}`}
+              src={`https://bhagwati-industries.onrender.com${product.imageUrl}`}
               alt={product.name}
               className="w-full h-64 object-cover rounded-lg"
             />
@@ -113,7 +113,7 @@ const ProductList = ({ products, refreshProductList }) => {
               {product.name}
             </h3>
             <p className="text-gray-700">{product.description}</p>
-            <p className="text-green-600 text-xl mt-2">${product.price}</p>
+            <p className="text-green-600 text-xl mt-2">₹{product.price}</p>
           </div>
 
           {/* Edit/Delete Buttons */}
