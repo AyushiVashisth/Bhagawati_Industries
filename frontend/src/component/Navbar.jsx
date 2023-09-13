@@ -19,15 +19,19 @@ const Navbar = () => {
     setShowModal(false);
   };
 
+  const handleLogo = () => {
+    navigator("/");
+  };
+
   const handleLoginFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8080/api/login", {
+      const response = await fetch("https://bhagwati-industries.onrender.com/api/login", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password }),
       });
 
       if (response.status === 200) {
@@ -36,7 +40,7 @@ const Navbar = () => {
         setEmail("");
         setPassword("");
         toast.success("Login successful"); // Display success toast
-        navigator("/admin")
+        navigator("/admin");
       } else {
         // Failed login
         setShowModal(false);
@@ -49,18 +53,19 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-blue-500 p-4 flex justify-between items-center">
-        <div>
-          <img src={logo} alt="logo" className="w-[30%]" />
+      <nav className="bg-[#779be7] p-4 flex justify-between items-center">
+        <div onClick={handleLogo}>
+          <img src={logo} alt="logo" className="w-[25%]" />
         </div>
+        {/* <h1 className="text-white font-bold text-2xl">Bhagawati Industries</h1> */}
         <div className="text-black text-xl">
-          <FaUser onClick={handleLoginClick} />
+          <FaUser onClick={handleLoginClick} className="cursor-pointer" />
         </div>
 
         {showModal && (
-          <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50">
-            <div className="bg-white p-4 rounded-md">
-              <h2 className="text-2xl font-bold mb-4">Login</h2>
+          <div className="fixed inset-0 flex items-center justify-center z-50">
+            <div className="bg-white w-full max-w-sm p-6 rounded-lg shadow-md">
+              <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
               <form onSubmit={handleLoginFormSubmit}>
                 <div className="mb-4">
                   <label htmlFor="email" className="block text-gray-700">
@@ -73,7 +78,7 @@ const Navbar = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="w-full border rounded-md py-2 px-3"
+                    className="w-full border rounded-md py-2 px-3 focus:outline-none focus:ring focus:border-blue-300"
                   />
                 </div>
                 <div className="mb-4">
@@ -87,20 +92,20 @@ const Navbar = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    className="w-full border rounded-md py-2 px-3"
+                    className="w-full border rounded-md py-2 px-3 focus:outline-none focus:ring focus:border-blue-300"
                   />
                 </div>
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+                    className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none"
                   >
                     Login
                   </button>
                 </div>
               </form>
               <button
-                className="text-blue-500 mt-2 hover:underline cursor-pointer"
+                className="text-red-500 mt-4 hover:underline cursor-pointer block mx-auto"
                 onClick={handleCloseModal}
               >
                 Close
@@ -108,7 +113,6 @@ const Navbar = () => {
             </div>
           </div>
         )}
-        {/* Toast container */}
       </nav>
       <ToastContainer position="top-right" autoClose={3000} />
     </>

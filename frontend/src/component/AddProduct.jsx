@@ -38,7 +38,8 @@ const AddProduct = ({ refreshProductList }) => {
       formData.append("price", productData.price);
       formData.append("image", productData.image);
 
-      await axios.post("http://localhost:8080/upload", formData, {
+      await axios.post("https://bhagwati-industries.onrender.com/upload", formData, {
+
         headers: {
           "Content-Type": "multipart/form-data"
         }

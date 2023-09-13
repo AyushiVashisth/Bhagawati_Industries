@@ -12,7 +12,8 @@ const Landing = () => {
 
   const fetchProductList = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/products");
+      const response = await axios.get("https://bhagwati-industries.onrender.com/products");
+
       setProducts(response.data);
       console.log("Product", response.data[0].imageUrl);
     } catch (error) {
@@ -23,9 +24,6 @@ const Landing = () => {
   return (
     <>
       <div className="container mx-auto p-4">
-        <h1 className="text-2xl font-semibold mb-4 text-center">
-          Product List
-        </h1>
         <Home products={products} />
       </div>
     </>
