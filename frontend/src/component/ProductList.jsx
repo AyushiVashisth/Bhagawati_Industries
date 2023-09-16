@@ -58,7 +58,7 @@ const ProductList = ({ products, refreshProductList }) => {
 
       // Replace with your API endpoint
       await axios.put(
-        `https://bhagawati-industies.vercel.app/products/${editedProduct._id}`,
+        `https://bhagwati-industries.onrender.com/products/${editedProduct._id}`,
         formData,
         {
           headers: {
