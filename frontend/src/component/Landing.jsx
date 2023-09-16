@@ -13,6 +13,7 @@ const Landing = () => {
   const fetchProductList = async () => {
     try {
       const response = await axios.get("https://bhagwati-industries.onrender.com/products");
+
       setProducts(response.data);
       console.log("Product", response.data[0].imageUrl);
     } catch (error) {

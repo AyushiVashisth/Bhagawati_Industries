@@ -14,6 +14,7 @@ const Home = ({ products }) => {
           <div className="mb-4">
             <img
               src={`https://bhagwati-industries.onrender.com${product.imageUrl}`}
+
               alt={product.name}
               className="w-full h-64 object-cover rounded-lg"
             />
@@ -26,6 +27,7 @@ const Home = ({ products }) => {
             </h3>
             <p className="text-gray-700">{product.description}</p>
             <p className="text-green-600 text-xl mt-2">₹{product.price}</p>
+
           </div>
         </div>
       ))}
