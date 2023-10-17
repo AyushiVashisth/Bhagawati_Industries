@@ -9,8 +9,8 @@
 </p>
 
   <div align="center">
-  <h2>Live Demo 👉 <a href="https://doctor-patient-appointment-booking.vercel.app/">Click here</a></h2>
-  <h2>Backend API 👉 <a href="https://doctor-appointment-hpp0.onrender.com/">Click here</a></h2>
+  <h2>Live Demo 👉 <a href="https://bhagawati-industies.vercel.app/">Click here</a></h2>
+  <h2>Backend API 👉 <a href="https://bhagwati-industries.onrender.com/">Click here</a></h2>
 </div>
 
 
